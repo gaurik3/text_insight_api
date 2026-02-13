@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Security
 from app.models import TextRequest, InsightResponse
 from app.auth import verify_api_key
 from app.azure_client import generate_insight
@@ -14,7 +14,7 @@ async def health_check():
 @router.post("/process-text", response_model=InsightResponse)
 async def process_text(
     request: TextRequest,
-    api_key: str = Depends(verify_api_key),
+    api_key: str = Security(verify_api_key),
 ):
     insight = await generate_insight(request.text)
 
@@ -27,7 +27,7 @@ async def process_text(
 
 
 @router.get("/metadata")
-async def metadata(api_key: str = Depends(verify_api_key)):
+async def metadata(api_key: str = Security(verify_api_key)):
     return {
         "service_name": "Text Insight API",
         "version": "1.0.0",

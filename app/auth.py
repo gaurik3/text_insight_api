@@ -1,19 +1,24 @@
-import os
+import json
 from fastapi import Security, HTTPException, status
 from fastapi.security.api_key import APIKeyHeader
 
 API_KEY_NAME = "X-API-Key"
-
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
 
 
-async def verify_api_key(api_key: str = Security(api_key_header)):
-    expected_api_key = os.getenv("INTERNAL_API_KEY")
+def load_config():
+    with open("config.json", "r") as f:
+        return json.load(f)
 
-    if expected_api_key is None:
+
+async def verify_api_key(api_key: str = Security(api_key_header)):
+    config = load_config()
+    expected_api_key = config.get("INTERNAL_API_KEY")
+
+    if not expected_api_key:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="API key not configured on server."
+            detail="Internal API key not configured."
         )
 
     if api_key is None or api_key != expected_api_key:

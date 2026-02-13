@@ -1,25 +1,32 @@
-import os
+import json
 from openai import AsyncAzureOpenAI
 
 
+def load_config():
+    with open("config.json", "r") as f:
+        return json.load(f)
+
+
 async def generate_insight(text: str) -> str:
-    api_key = os.getenv("AZURE_OPENAI_API_KEY")
-    endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-    deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT")
+    config = load_config()
+
+    api_key = config.get("AZURE_OPENAI_API_KEY")
+    endpoint = config.get("AZURE_OPENAI_ENDPOINT")
+    deployment = config.get("AZURE_OPENAI_DEPLOYMENT")
 
     if not api_key or not endpoint or not deployment:
-        raise RuntimeError("Azure OpenAI environment variables are not properly configured.")
+        raise RuntimeError("Azure configuration missing in config.json.")
 
     client = AsyncAzureOpenAI(
         api_key=api_key,
         azure_endpoint=endpoint,
-        api_version="2024-02-15-preview"
+        api_version="2024-12-01-preview"
     )
 
     response = await client.chat.completions.create(
         model=deployment,
         messages=[
-            {"role": "system", "content": "You are an AI that extracts concise insights from text."},
+            {"role": "system", "content": "You extract concise insights from text."},
             {"role": "user", "content": text}
         ],
         temperature=0.5,
