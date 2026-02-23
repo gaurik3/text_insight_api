@@ -1,9 +1,9 @@
-##### COMPARISON REPORT 
+# COMPARISON REPORT 
 
-#### SUMMARIZATION 
+## SUMMARIZATION 
 
 ### ZERO SHOT
-# Example 1:
+#### Example 1:
 Input:
 {
   "task": "summarization",
@@ -11,7 +11,7 @@ Input:
   "input_text": "Summarize this text: Effective leadership in modern organizations requires more than technical expertise. Leaders must cultivate psychological safety within teams, enabling individuals to share ideas without fear of criticism. Research indicates that high-performing teams often exhibit strong communication norms, shared accountability, and adaptive problem-solving abilities. In rapidly changing markets, companies that foster a culture of continuous learning are more likely to innovate successfully. However, balancing short-term performance metrics with long-term strategic vision can be difficult. Leaders must navigate uncertainty, manage stakeholder expectations, and align organizational goals with evolving customer needs."
 }
 
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "summarization",
@@ -24,7 +24,7 @@ Output:
   "output_word_count": 58
 }
 
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "summarization",
@@ -37,7 +37,7 @@ Output:
   "output_word_count": 47
 }
 
-# Example 2:
+#### Example 2:
 
 Input:
 {
@@ -46,7 +46,7 @@ Input:
   "input_text": "Summarize this text: Climate change is driven primarily by the accumulation of greenhouse gases in the atmosphere, particularly carbon dioxide and methane. These gases trap heat, leading to rising global temperatures, melting polar ice caps, and increasing sea levels. Extreme weather events such as hurricanes, droughts, and wildfires have become more frequent and intense in many regions. Governments worldwide have pledged to reduce emissions through renewable energy adoption, carbon pricing mechanisms, and international agreements such as the Paris Accord. However, achieving meaningful reductions requires coordinated efforts from industries, policymakers, and individuals. Transitioning to sustainable systems involves not only technological innovation but also behavioral and economic shifts that may challenge existing infrastructure and political priorities."
 }
 
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "summarization",
@@ -59,7 +59,7 @@ Output:
   "output_word_count": 66
 }
 
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 {
   "task": "summarization",
   "mode": "zero_shot",
@@ -73,14 +73,14 @@ Output:
 
 ### FEW SHOT
 
-# Example 1:
+#### Example 1:
 Input:
 {
   "task": "summarization",
   "mode": "few_shot",
   "input_text": "You are an expert summarization assistant Task: Summarize the given passage in 2–3 concise sentences. Focus on the core ideas. Do not add new information. Keep the tone neutral and informative. Example 1: Passage: Remote work has expanded rapidly due to advances in digital communication tools and shifting workplace expectations. Many organizations report increased flexibility and employee satisfaction, though challenges such as reduced team cohesion and blurred work-life boundaries remain concerns. Summary: Remote work has grown due to digital tools and changing workplace norms. While it offers flexibility and improved satisfaction, it also presents challenges like weakened team cohesion and blurred work-life balance. Now summarize the following passage: Effective leadership in modern organizations requires more than technical expertise. Leaders must cultivate psychological safety within teams, enabling individuals to share ideas without fear of criticism. Research indicates that high-performing teams often exhibit strong communication norms, shared accountability, and adaptive problem-solving abilities. In rapidly changing markets, companies that foster a culture of continuous learning are more likely to innovate successfully. However, balancing short-term performance metrics with long-term strategic vision can be difficult. Leaders must navigate uncertainty, manage stakeholder expectations, and align organizational goals with evolving customer needs."
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "summarization",
@@ -93,7 +93,7 @@ Output:
   "output_word_count": 38
 }
 
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "summarization",
@@ -106,7 +106,7 @@ Output:
   "output_word_count": 37
 }
 
-# Example 2:
+#### Example 2:
 
 Input:
 {
@@ -114,7 +114,7 @@ Input:
   "mode": "few_shot",
   "input_text": "You are an expert summarization assistant Task: Summarize the given passage in 2–3 concise sentences. Focus on the core ideas. Do not add new information. Keep the tone neutral and informative. Example 1: Passage: Remote work has expanded rapidly due to advances in digital communication tools and shifting workplace expectations. Many organizations report increased flexibility and employee satisfaction, though challenges such as reduced team cohesion and blurred work-life boundaries remain concerns. Summary: Remote work has grown due to digital tools and changing workplace norms. While it offers flexibility and improved satisfaction, it also presents challenges like weakened team cohesion and blurred work-life balance. Now summarize the following Climate change is driven primarily by the accumulation of greenhouse gases in the atmosphere, particularly carbon dioxide and methane. These gases trap heat, leading to rising global temperatures, melting polar ice caps, and increasing sea levels. Extreme weather events such as hurricanes, droughts, and wildfires have become more frequent and intense in many regions. Governments worldwide have pledged to reduce emissions through renewable energy adoption, carbon pricing mechanisms, and international agreements such as the Paris Accord. However, achieving meaningful reductions requires coordinated efforts from industries, policymakers, and individuals. Transitioning to sustainable systems involves not only technological innovation but also behavioral and economic shifts that may challenge existing infrastructure and political priorities."
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "summarization",
@@ -127,7 +127,7 @@ Output:
   "output_word_count": 41
 }
 
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "summarization",
@@ -141,7 +141,7 @@ Output:
 }
 
 
-###### SUMMARIZATION RESULTS AND INSIGHTS
+# SUMMARIZATION RESULTS AND INSIGHTS
 1. Few-Shot Outputs are consistently more concise and compressed
 2. Temperature had minimal impact on factual content during summarization.
 3. Few-Shot improves structural consistency
@@ -149,17 +149,17 @@ Output:
 5. A lot of prompt tokens are used during few-shot as compared to zero-shot
 6. Latency slightly increases with larger prompts i.e. with few-shot prompts.
 
-#### EXTRACTION
+## EXTRACTION
 
 ### ZERO SHOT
-# Example 1:
+#### Example 1:
 Input:
 {
   "task": "extraction",
   "mode": "zero_shot",
   "input_text": "\n\nRequired JSON schema:\n{\n  \"topic\": string,\n  \"main_idea\": string,\n  \"key_points\": [string],\n  \"risks_or_challenges\": [string]\n}\n\nPassage:\nRemote work has expanded rapidly due to advances in digital communication tools. Many organizations report increased flexibility and employee satisfaction. However, challenges such as reduced team collaboration and blurred work-life boundaries remain concerns.\n\nReturn in JSON format:"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:{
   "task": "extraction",
   "mode": "zero_shot",
@@ -170,7 +170,7 @@ Output:{
   "total_tokens": 217,
   "output_word_count": 57
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:{
   "task": "extraction",
   "mode": "zero_shot",
@@ -182,14 +182,14 @@ Output:{
   "output_word_count": 57
 }
 
-# Example 2:
+#### Example 2:
 Input:
 {
   "task": "extraction",
   "mode": "zero_shot",
   "input_text": "\n\nRequired JSON schema:\n{\n  \"topic\": string,\n  \"main_idea\": string,\n  \"key_points\": [string],\n  \"risks_or_challenges\": [string]\n}\n\nPassage:\nRegular exercise improves cardiovascular health and strengthens muscles. It also reduces stress and improves mental well-being. Despite these benefits, many individuals struggle with consistency due to time constraints and lack of motivation.\n\nReturn in JSON format:"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "extraction",
@@ -201,7 +201,7 @@ Output:
   "total_tokens": 217,
   "output_word_count": 49
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "extraction",
@@ -215,14 +215,14 @@ Output:
 }
 
 ### FEW SHOT
-# Example 1:
+#### Example 1:
 Input:
 {
   "task": "extraction",
   "mode": "few_shot",
   "input_text": "You are a structured data transformation engine.\n\nTask:\nConvert drilling log lines into structured JSON.\n\nRules:\n- Return ONLY valid JSON.\n- Do NOT use markdown.\n- Do NOT wrap output in backticks.\n- Output must be a JSON array.\n- Follow the schema exactly.\n- All numeric fields must remain numbers.\n\nTarget Schema:\n{\n  \"Timestamp\": \"string\",\n  \"Values\": {\n    \"rop\": number,\n    \"wob\": number,\n    \"torque\": number,\n    \"rpm\": number\n  },\n  \"Context\": {\n    \"formation\": \"string\"\n  },\n  \"Anomaly\": boolean\n}\n\nExample Input:\nTimestamp: 2026-02-23T10:58:29.068700Z - ROP: 63, RPM: 140, Torque: 3.66, WOB: 11, Formation: Shale, Anomaly: false\n\nExample Output:\n[\n  {\n    \"Timestamp\": \"2026-02-23T10:58:29.068700Z\",\n    \"Values\": {\n      \"rop\": 63,\n      \"wob\": 11,\n      \"torque\": 3.66,\n      \"rpm\": 140\n    },\n    \"Context\": {\n      \"formation\": \"Shale\"\n    },\n    \"Anomaly\": false\n  }\n]\n\nNow convert the following input:\nTimestamp: 2026-02-23T08:50:59.642672Z - ROP: 94, RPM: 139, Torque: 3.34, WOB: 13, Formation: Sandstone, Anomaly: false\nTimestamp: 2026-02-23T08:51:00.642672Z - ROP: 93, RPM: 136, Torque: 3.31, WOB: 13, Formation: Sandstone, Anomaly: false\n\nJSON:"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "extraction",
@@ -234,7 +234,7 @@ Output:
   "total_tokens": 641,
   "output_word_count": 46
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "extraction",
@@ -247,14 +247,14 @@ Output:
   "output_word_count": 46
 }
 
-# Example 2:
+#### Example 2:
 Input:
 {
   "task": "extraction",
   "mode": "few_shot",
   "input_text": "You are a structured data transformation engine.\n\nTask:\nConvert drilling telemetry log lines into structured JSON.\n\nRules:\n- Return ONLY valid JSON.\n- Do NOT include markdown.\n- Do NOT include explanations.\n- Output must be a JSON array.\n- Follow the schema exactly.\n- Preserve numeric types (no quotes for numbers).\n\nTarget Schema:\n{\n  \"Timestamp\": \"string\",\n  \"Values\": {\n    \"rop\": number,\n    \"wob\": number,\n    \"torque\": number,\n    \"rpm\": number\n  },\n  \"Context\": {\n    \"formation\": \"string\"\n  },\n  \"Anomaly\": boolean\n}\n\nExample Input:\nTimestamp: 2026-02-23T11:00:00.000000Z - ROP: 68, RPM: 132, Torque: 3.45, WOB: 12, Formation: Dolomite, Anomaly: false\n\nExample Output:\n[\n  {\n    \"Timestamp\": \"2026-02-23T11:00:00.000000Z\",\n    \"Values\": {\n      \"rop\": 68,\n      \"wob\": 12,\n      \"torque\": 3.45,\n      \"rpm\": 132\n    },\n    \"Context\": {\n      \"formation\": \"Dolomite\"\n    },\n    \"Anomaly\": false\n  }\n]\n\nNow convert the following input:\nTimestamp: 2026-02-23T11:05:10.500000Z - ROP: 49, RPM: 155, Torque: 4.60, WOB: 9, Formation: Shale, Anomaly: true\nTimestamp: 2026-02-23T11:05:11.500000Z - ROP: 70, RPM: 130, Torque: 3.40, WOB: 13, Formation: Sandstone, Anomaly: false\n\nJSON:"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "extraction",
@@ -266,7 +266,7 @@ Output:
   "total_tokens": 641,
   "output_word_count": 46
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:{
   "task": "extraction",
   "mode": "few_shot",
@@ -278,7 +278,7 @@ Output:{
   "output_word_count": 46
 }
  
-##### EXTRACTION RESULTS AND INSIGHTS
+# EXTRACTION RESULTS AND INSIGHTS
 1. Temperature has almoast no effect in JSON extraction tasks
 2. In few-shot prompts format compliance is better than zero-shot prompts
 3. Zero shot prompts added few insights generated by its own in the extracted JSON
@@ -287,17 +287,17 @@ Output:{
 6. Data type is accurate and does not change when specifically instructed in few-shot prompts.
 
 
-#### DECISION AND REASONING
+## DECISION AND REASONING
 
 ### ZERO SHOT
-# Example 1:
+#### Example 1:
 Input:
 {
   "task": "decision",
   "mode": "zero_shot",
   "input_text": "You are a decision-making assistant.\n\nTask:\nAnalyze the situation carefully and provide a reasoned decision.\n\nRules:\n- Think through the trade-offs.\n- Provide a short reasoning section.\n- Then provide a clear final decision.\n- Do not include unnecessary text.\n\nScenario:\nA startup has $100,000 remaining in its budget. It can either invest in marketing to rapidly acquire customers or invest in improving product quality and fixing technical issues. Customer acquisition will likely increase short-term revenue, but the product currently has performance issues that may lead to churn.\n\nQuestion:\nWhere should the startup invest the remaining budget?\n\nOutput Format:\nReasoning:\n<brief explanation>\n\nDecision:\n<clear final choice>"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "decision",
@@ -309,7 +309,7 @@ Output:
   "total_tokens": 260,
   "output_word_count": 80
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "decision",
@@ -321,14 +321,14 @@ Output:
   "total_tokens": 267,
   "output_word_count": 81
 }
-# Example 2:
+#### Example 2:
 Input:
 {
   "task": "decision",
   "mode": "zero_shot",
   "input_text": "You are a logical decision-making system.\n\nTask:\nEvaluate the situation and determine the best course of action.\n\nRules:\n- Use step-by-step reasoning internally.\n- Provide concise reasoning in the output.\n- Give one final decision.\n\nScenario:\nA drilling operation detects an unusual spike in torque and a drop in rate of penetration (ROP). Equipment sensors show no hardware malfunction. Continuing operations may risk equipment damage, but stopping operations causes costly delays.\n\nQuestion:\nShould operations continue or be temporarily halted for inspection?\n\nOutput Format:\nReasoning:\n<brief explanation>\n\nDecision:\n<Continue Operations / Halt Operations>"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "decision",
@@ -340,7 +340,7 @@ Output:
   "total_tokens": 248,
   "output_word_count": 75
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "decision",
@@ -354,14 +354,14 @@ Output:
 }
 
 ### FEW SHOT
-# Example 1:
+#### Example 1:
 Input:
 {
   "task": "decision",
   "mode": "few_shot",
   "input_text": "You are a strategic decision-making assistant.\n\nTask:\nAnalyze the scenario carefully and provide a reasoned decision.\n\nRules:\n- Provide concise reasoning.\n- Then provide a clear final decision.\n- Do not include unnecessary text.\n\nExample:\nScenario:\nA company can either reduce prices to increase market share or maintain prices and invest in brand positioning. Reducing prices may increase sales volume but reduce profit margins. Strengthening the brand may result in slower growth but higher long-term profitability.\n\nQuestion:\nWhich strategy should the company choose?\n\nAnswer:\nReasoning:\nReducing prices may boost short-term sales but weakens margins and may position the brand as low-value. Investing in brand positioning supports long-term differentiation and sustainable profitability.\n\nDecision:\nMaintain prices and invest in brand positioning.\n\n---\n\nNow analyze the following:\n\nScenario:\nA software company must choose between launching a new feature quickly to beat competitors or delaying the launch to conduct more testing and ensure stability. A rushed launch may cause bugs and user frustration, while delaying may allow competitors to capture attention first.\n\nQuestion:\nShould the company launch immediately or delay for further testing?\n\nAnswer:"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "decision",
@@ -373,7 +373,7 @@ Output:
   "total_tokens": 335,
   "output_word_count": 56
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "decision",
@@ -385,14 +385,14 @@ Output:
   "total_tokens": 335,
   "output_word_count": 55
 }
-# Example 2:
+#### Example 2:
 Input:
 {
   "task": "decision",
   "mode": "few_shot",
   "input_text": "You are a logical risk assessment system.\n\nTask:\nEvaluate the situation and determine the best course of action.\n\nRules:\n- Provide structured reasoning.\n- Provide one clear decision.\n- Keep the explanation concise.\n\nExample:\nScenario:\nA manufacturing plant detects a small increase in machine vibration levels. Production is running normally, but maintenance records show similar patterns previously led to equipment failure.\n\nQuestion:\nShould the plant continue operations or schedule immediate maintenance?\n\nAnswer:\nReasoning:\nAlthough production is currently stable, historical patterns suggest increased vibration may indicate early failure risk. Preventive maintenance reduces the risk of major breakdown and costly downtime.\n\nDecision:\nSchedule immediate maintenance.\n\n---\n\nNow analyze the following:\n\nScenario:\nAn airline is considering flying through a region with mild storm forecasts to avoid a long rerouting delay. The storm is not severe, but turbulence may cause passenger discomfort and minor operational risk.\n\nQuestion:\nShould the airline proceed through the storm region or reroute?\n\nAnswer:"
 }
-## TEMPERATURE = 0
+##### TEMPERATURE = 0
 Output:
 {
   "task": "decision",
@@ -404,7 +404,7 @@ Output:
   "total_tokens": 314,
   "output_word_count": 62
 }
-## TEMPERATURE = 0.7
+##### TEMPERATURE = 0.7
 Output:
 {
   "task": "decision",
@@ -417,7 +417,7 @@ Output:
   "output_word_count": 49
 }
 
-##### DECISION AND REASONING RESULTS AND INSIGHTS
+# DECISION AND REASONING RESULTS AND INSIGHTS
 1. Temperature des not change the Decision but makesthe Reasoning more in-depth and open-minded.
 2. Few-shot prompts reduces reasoning length and has a proper structure.
 3. Zero-Shot reasoning is more imaginative and often used implications.

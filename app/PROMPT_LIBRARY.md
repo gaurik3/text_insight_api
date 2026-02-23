@@ -1,5 +1,5 @@
 
-### Model Used
+#### Model Used
 
 Azure OpenAI
 GPT-4o
@@ -7,12 +7,12 @@ API Version: 2024-12-01-preview
 
 ### Objective
 
-### Summariztion of Context Data
+## Summariztion of Context Data
 To create concise summary of textual data while reducing verbosity and not ignoring key points.
 
-## Zero Shot Prompt
+### Zero Shot Prompt
 
-# User Prompt Template
+#### User Prompt Template
 
 1. Summarize the following text:
     {text}
@@ -23,9 +23,9 @@ To create concise summary of textual data while reducing verbosity and not ignor
 4. {text}
     Summarize this.
 
-## Few Shot Prompt
+### Few Shot Prompt
 
-# User Prompt Template
+#### User Prompt Template
 
 1. Example:
     Text: The buisness incuured a loss of 12% and in the second quarter gained the profits by 30%
@@ -42,12 +42,12 @@ Zero-Shot might bemore verbose, but Few-Shot is more structured.
 Both will be factually correct.
 
 
-### Structured Text Extraction
+## Structured Text Extraction
 Extract structured data in valid JSON format from unstructured text.
 
-## Zero Shot Prompt
+### Zero Shot Prompt
 
-# User Prompt Template
+#### User Prompt Template
 
 1. Extract name, date, and AccNo. from the following text:
     {text}
@@ -56,9 +56,9 @@ Extract structured data in valid JSON format from unstructured text.
 3. Convert this text into stuctural format:
     {text}
 
-## Few Shot Prompt
+### Few Shot Prompt
 
-# User Prompt Template
+#### User Prompt Template
 
 Example:
 Text: At the first timestamp, 2026-02-23T08:52:44.000909Z, the formation is Shale with no anomalies or events. The rate of penetration is 67, rpm is 143, torque is 3.7, and wobble is 11.
@@ -92,12 +92,12 @@ Few-Shot improves JSON validity and formatting consistency.
 Specifying "valid JSON only" reduces hallucinations.
 
 
-### Reasoned Decision making task
+## Reasoned Decision making task
 Provide structured reasoning followed by a clear decision.
 
-## Zero Shot Prompt
+### Zero Shot Prompt
 
-# User Prompt Template
+#### User Prompt Template
 
 1. Analyze the scenario and recommend action:
     {text}
@@ -106,9 +106,9 @@ Provide structured reasoning followed by a clear decision.
 3. Give the decision for this problem along with the reason.
     {text}
 
-## Few Shot Prompt
+### Few Shot Prompt
 
-# User Prompt Template
+#### User Prompt Template
 
 Example:
 Scenario: Sales dropped 20%.
@@ -126,13 +126,13 @@ Zero shot mixes reasoningand decision
 Structured format reduces inconsistency.
 
 
-### PROMPT ENGINEERING PRINCIPLES
+###### PROMPT ENGINEERING PRINCIPLES
 1. Constraints reduce verbosity.
 2. Output format specification is more reliable
 3. Clear role instructions reduces hallucinations
 4. Temperature controlling also changes the evaluation accuracy.
 
-##### RECOMENDATIONS ON PROMPTS BSET PRACTCES BASED ON THE COMPARISON REPORT
+# RECOMENDATIONS ON PROMPTS BSET PRACTCES BASED ON THE COMPARISON REPORT
 1. Use examples when format really matters
 If you need strict structure (like proper JSON), giving one example in the prompt helps the model follow the format correctly.
 
